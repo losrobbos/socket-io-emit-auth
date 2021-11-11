@@ -78,7 +78,7 @@ io.on("connection", (socket) => {
   // server side error handler ( triggered by next(err) calls in middleware )
   socket.on("error", (err) => {
 
-    io.emit("error", err.message); // forward error to client / browser too!
+    socket.emit("error", err.message); // forward error to client / browser too!
     socket.disconnect(true); // disconnect the client / kick that unauthenticated dude out
   });
   
